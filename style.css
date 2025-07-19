@@ -1,13 +1,14 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
+  background: #e9edc9;
   color: #333;
 }
 
 h1, h2, h3 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black
 }
 
 .hero {
@@ -34,7 +35,7 @@ h1, h2, h3 {
   gap: 2rem;
   justify-content: center;
   padding: 2rem 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#000;
 }
 .container {
@@ -69,7 +70,7 @@ h1, h2, h3 {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  background-color: #fdfdfd;
+  background-color: #EEF4ED;
 }
 
 .chess-photo {
@@ -102,7 +103,7 @@ h1, h2, h3 {
 
 
 .navbar {
-  background: #111;
+  background: #8DA9C4;
   padding: 1rem;
   text-align: center;
 }
@@ -119,7 +120,7 @@ h1, h2, h3 {
 }
 
 .navbar a {
-  color: #eee;
+  color: #8DA9C4;
   text-decoration: none;
   font-weight: bold;
 }
@@ -131,10 +132,11 @@ h1, h2, h3 {
 .section {
   padding: 4rem 2rem;
   text-align: center;
+  background: #8DA9C4
 }
 
 .dark {
-  background: #222;
+  background: #8DA9C4;
   color: #fff;
 }
 
@@ -147,7 +149,7 @@ h1, h2, h3 {
 }
 
 .card {
-  background: #fff;
+  background: #EEF4ED;
   color: #000;
   padding: 2rem;
   border-radius: 10px;
@@ -197,8 +199,8 @@ button:hover {
 }
 
 footer {
-  background: #111;
-  color: #aaa;
+  background: #EEF4ED;
+  color: #000000;
   text-align: center;
   padding: 1rem;
 }
