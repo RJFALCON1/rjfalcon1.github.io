@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>rj rajdev — engineering is an art</title>
+<title>arjun rajdev — engineering is an art</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +18,7 @@
   --blue:#1846F0; --blue-deep:#0B1F8C; --blue-soft:rgba(24,70,240,.10);
   --red:#FF4438; --yellow:#FFC93C; --green:#22B26B; --orange:#FF7A1A;
   --purple:#7A5CFF; --cyan:#16C0E6; --pink:#FF5FA2;
+  --umd-red:#E21833; --umd-gold:#FFD520;
 
   --hn:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:"Space Mono",ui-monospace,monospace;
@@ -102,6 +103,9 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 #s1 p{ font-size:clamp(1.02rem,1.6vw,1.3rem); line-height:1.6; max-width:56ch; color:#222; }
 #s1 .tags{ margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:.5rem; }
 #s1 .tags span{ font-family:var(--mono); font-size:.78rem; border:1.5px solid var(--ink); padding:.3rem .6rem; border-radius:30px; }
+/* easter-egg trigger (subtle) */
+.umd{ cursor:pointer; transition:color .2s ease; }
+.umd:hover{ color:var(--umd-red); }
 
 /* =====================================================================
    02 · METROBOARD  (accurate Manhattan · reclined LED board)
@@ -150,9 +154,9 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 #s4 .td{ margin-top:1.6rem; font-family:var(--mono); font-size:.72rem; letter-spacing:.28em; text-transform:lowercase; color:#8a8a8a; }
 
 /* =====================================================================
-   05 · CONTACT + INTERACTIVE MATRIX
+   05 · CONTACT + INTERACTIVE MATRIX   (light section; matrix stays dark)
    ===================================================================== */
-#s5{ padding-bottom:clamp(3rem,6vw,5rem); }
+#s5{ padding-bottom:0; }
 #s5 h2{ font-size:clamp(2.2rem,7vw,5rem); font-weight:700; letter-spacing:-.03em; text-transform:lowercase; }
 #s5 .email{ display:inline-block; margin-top:1rem; font-size:clamp(1.4rem,4vw,2.6rem); font-weight:700; color:var(--blue); text-decoration:none; letter-spacing:-.02em; word-break:break-all; }
 #s5 .email:hover{ text-decoration:underline; }
@@ -160,15 +164,26 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 #s5 .links a{ font-family:var(--mono); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; border:2px solid var(--ink); padding:.55rem .9rem; text-decoration:none; transition:.16s; }
 #s5 .links a:hover{ background:var(--ink); color:var(--paper); }
 .matrixwrap{ position:relative; margin-top:clamp(2.5rem,6vw,4rem); width:100vw; margin-left:calc(50% - 50vw);
-  min-height:clamp(280px,34vw,520px); padding-bottom:clamp(1rem,3vw,2rem); background:#0b0b0c; overflow:visible; touch-action:none; user-select:none; }
-.matrix{ display:grid; }
+  min-height:clamp(240px,42vh,420px); background:#0b0b0c; overflow:hidden; touch-action:none; user-select:none; }
+.matrix{ display:grid; min-height:100%; width:100%; }
 .cell{ aspect-ratio:1/1; background:#0b0b0c; border:1px solid #16161a; transition:background .05s linear; }
-.matrixname{ position:absolute; inset:0; display:grid; place-items:center; z-index:3; pointer-events:none;
-  font-weight:700; text-transform:lowercase; letter-spacing:-.04em; color:#fff; mix-blend-mode:difference;
-  font-size:clamp(3rem,15vw,13rem); line-height:1.15; }
+.matrixname{ position:absolute; inset:0; display:grid; place-items:center; z-index:2; pointer-events:none; padding:0 .3em;
+  font-weight:700; text-transform:lowercase; letter-spacing:-.04em; white-space:nowrap; color:#fff; mix-blend-mode:difference;
+  font-size:min(11vw,8.5rem); line-height:1; }
 .matrixhint{ position:absolute; top:12px; left:14px; z-index:3; pointer-events:none; font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:#5a5a66; }
 .foot{ position:relative; z-index:3; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; padding:1.2rem clamp(1.2rem,5vw,5rem) 2.4rem;
-  font-family:var(--mono); font-size:.72rem; line-height:1.5; letter-spacing:.06em; text-transform:lowercase; color:#7a7a7a; background:#0b0b0c; color:#8a8a8a; }
+  font-family:var(--mono); font-size:.72rem; line-height:1.5; letter-spacing:.06em; text-transform:lowercase; background:#0b0b0c; color:#8a8a8a; }
+
+/* =====================================================================
+   GO TERPS! easter egg overlay
+   ===================================================================== */
+#terps{ position:fixed; inset:0; z-index:200; background:var(--umd-red); display:grid; place-items:center;
+  opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s; }
+#terps.on{ opacity:1; visibility:visible; }
+#terps span{ font-family:var(--anton); text-transform:uppercase; color:var(--umd-gold); letter-spacing:.02em;
+  font-size:clamp(3rem,15vw,12rem); line-height:.9; text-shadow:5px 5px 0 rgba(0,0,0,.22);
+  transform:scale(.85); transition:transform .35s cubic-bezier(.2,.9,.2,1.3); }
+#terps.on span{ transform:scale(1); }
 
 /* =====================================================================
    REVEAL + RESPONSIVE + A11Y
@@ -181,6 +196,7 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
   .up{ opacity:1 !important; transform:none !important; }
   .boot-cover .word span{ animation:none !important; transform:none !important; }
   .scrollcue span{ animation:none !important; }
+  #terps span{ transition:none !important; }
 }
 :focus-visible{ outline:3px solid var(--blue); outline-offset:3px; }
 </style>
@@ -191,10 +207,13 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 <!-- HOWDY intro -->
 <div class="boot-cover" id="boot"><div class="word"><span class="s1">how</span><span class="s2">d</span><span class="s3">y</span></div></div>
 
+<!-- GO TERPS! easter egg -->
+<div id="terps" aria-hidden="true"><span>go terps!</span></div>
+
 <!-- fixed header (name · nyc time · slogan) -->
 <header class="topbar">
   <div class="tl">
-    <span class="nm lower">rj rajdev</span>
+    <span class="nm lower">arjun rajdev</span>
     <span class="tm" id="clock">new york — --:--</span>
   </div>
   <div class="tr lower">engineering<br>is an art</div>
@@ -223,7 +242,7 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
       beautiful.
     </p>
     <div class="banners">
-      <span class="banner banner--name up">rj rajdev</span>
+      <span class="banner banner--name up">arjun rajdev</span>
       <span class="banner banner--slogan up">engineering is an art</span>
     </div>
   </div>
@@ -236,7 +255,7 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
     <span class="tick up">01 — about</span>
     <h2 class="up">i turn <em>sketches</em> into machines.</h2>
     <!-- EDIT BIO -->
-    <p class="up">i'm arjun rajdev, a rising freshman at the university of maryland. i plan on majoring in mechanical engineering and hope to contribute to innovative projects that make a difference. i have developed projects with columbia university's roar lab to gamify physical therapy for spinal cord injury patients.</p>
+    <p class="up">i'm arjun rajdev, a rising freshman at <span class="umd" id="umd">the university of maryland</span>. i plan on majoring in mechanical engineering and hope to contribute to innovative projects that make a difference. i have developed projects with columbia university's roar lab to gamify physical therapy for spinal cord injury patients.</p>
     <div class="tags up">
       <span>cad</span><span>hardware</span><span>firmware</span><span>fabrication</span><span>tennis</span><span>marathoning</span>
     </div>
@@ -323,10 +342,10 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
   <div class="matrixwrap" id="matrixwrap">
     <span class="matrixhint">click + drag to play →</span>
     <div class="matrix" id="matrix"></div>
-    <div class="matrixname">rj rajdev</div>
+    <div class="matrixname">arjun rajdev</div>
   </div>
   <div class="foot">
-    <span>© 2026 rj rajdev</span>
+    <span>© 2026 arjun rajdev</span>
     <span>new york city</span>
     <span>engineering is an art</span>
   </div>
@@ -351,6 +370,18 @@ const scenes=[];
 
 /* ---------- boot reveal ---------- */
 addEventListener('load',()=> setTimeout(()=>{ document.body.classList.add('ready'); document.body.classList.remove('boot'); }, reduce?200:1100));
+
+/* ---------- GO TERPS! easter egg ---------- */
+(function(){
+  const umd=document.getElementById('umd'), terps=document.getElementById('terps');
+  if(!umd||!terps) return;
+  let timer=null;
+  umd.addEventListener('click',()=>{
+    terps.classList.add('on');
+    clearTimeout(timer);
+    timer=setTimeout(()=> terps.classList.remove('on'), 2000);
+  });
+})();
 
 /* =====================================================================
    WEBGL
@@ -485,7 +516,7 @@ secs.forEach(s=>spy.observe(s));
   let cols=0, rows=0;
   function build(){
     const w=wrap.clientWidth; const h=wrap.clientHeight; const cell=Math.max(30, Math.round(w/40));
-    cols=Math.max(8, Math.floor(w/cell)); rows=Math.max(8, Math.floor(h/cell));
+    cols=Math.max(8, Math.floor(w/cell)); rows=Math.max(6, Math.floor(h/cell));
     grid.style.gridTemplateColumns=`repeat(${cols},1fr)`;
     grid.style.gridTemplateRows=`repeat(${rows},1fr)`;
     grid.innerHTML='';
