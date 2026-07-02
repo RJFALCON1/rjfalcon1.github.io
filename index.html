@@ -57,10 +57,10 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 /* =====================================================================
    GUGLIERI-STYLE FIXED HEADER
    ===================================================================== */
-.topbar{ position:fixed; top:0; left:0; right:0; z-index:40; display:flex; justify-content:space-between; align-items:flex-start;
+.topbar{ position:fixed; top:0; left:0; right:0; z-index:40; display:flex; justify-content:space-between; align-items:flex-start; overflow:visible;
   padding:clamp(1rem,2.4vw,1.6rem) clamp(1.2rem,4vw,2.4rem); mix-blend-mode:difference; color:#fff; pointer-events:none; }
 .topbar a{ pointer-events:auto; }
-.topbar .nm{ font-weight:700; font-size:clamp(1rem,1.6vw,1.25rem); letter-spacing:-.01em; display:block; }
+.topbar .nm{ font-weight:700; font-size:clamp(1rem,1.6vw,1.25rem); line-height:1.2; letter-spacing:-.01em; display:block; }
 .topbar .tm{ font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; display:block; margin-top:.15rem; opacity:.9; }
 .topbar .tr{ font-family:var(--mono); font-size:clamp(.72rem,1.1vw,.9rem); text-align:right; max-width:14ch; line-height:1.4; }
 
@@ -73,15 +73,15 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 /* =====================================================================
    00 · HERO
    ===================================================================== */
-#s0{ overflow:hidden; min-height:100svh; }
+#s0{ overflow:visible; min-height:100svh; }
 #s0 .hero-inner{ position:relative; z-index:3; }
 .phrase{ font-size:clamp(1.7rem,4.4vw,3.6rem); font-weight:500; line-height:1.18; letter-spacing:-.015em; max-width:20ch; }
 .phrase .ico{ display:inline-grid; place-items:center; width:1.05em; height:1.05em; border-radius:.22em; color:#fff; font-size:.62em;
   background:var(--c,var(--blue)); transform:translateY(.08em) rotate(-4deg); margin:0 .06em; box-shadow:0 3px 0 rgba(0,0,0,.15); }
 .banners{ margin-top:clamp(2rem,5vw,3.5rem); position:relative; }
 .banner{ position:relative; display:block; width:max-content; max-width:100%; }
-.banner--name{ font-weight:700; text-transform:lowercase; font-size:clamp(2.6rem,10vw,7.5rem); line-height:.86; letter-spacing:-.03em;
-  background:var(--blue); color:#fff; padding:.12em .34em .2em; transform:rotate(-2deg); box-shadow:10px 10px 0 var(--blue-deep); }
+.banner--name{ font-weight:700; text-transform:lowercase; font-size:clamp(2.6rem,10vw,7.5rem); line-height:1.1; letter-spacing:-.03em;
+  background:var(--blue); color:#fff; padding:.16em .34em .25em; transform:rotate(-2deg); box-shadow:10px 10px 0 var(--blue-deep); }
 .banner--slogan{ margin-top:-.15em; margin-left:auto; font-weight:700; text-transform:lowercase; font-size:clamp(1.3rem,4.6vw,3.2rem); letter-spacing:-.02em;
   background:var(--paper); color:var(--blue); border:3px solid var(--blue); padding:.28em .5em; transform:rotate(1.6deg);
   background-image:linear-gradient(var(--blue-soft) 1px,transparent 1px),linear-gradient(90deg,var(--blue-soft) 1px,transparent 1px); background-size:14px 14px; }
@@ -152,7 +152,7 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 /* =====================================================================
    05 · CONTACT + INTERACTIVE MATRIX
    ===================================================================== */
-#s5{ padding-bottom:0; }
+#s5{ padding-bottom:clamp(3rem,6vw,5rem); }
 #s5 h2{ font-size:clamp(2.2rem,7vw,5rem); font-weight:700; letter-spacing:-.03em; text-transform:lowercase; }
 #s5 .email{ display:inline-block; margin-top:1rem; font-size:clamp(1.4rem,4vw,2.6rem); font-weight:700; color:var(--blue); text-decoration:none; letter-spacing:-.02em; word-break:break-all; }
 #s5 .email:hover{ text-decoration:underline; }
@@ -160,15 +160,15 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 #s5 .links a{ font-family:var(--mono); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; border:2px solid var(--ink); padding:.55rem .9rem; text-decoration:none; transition:.16s; }
 #s5 .links a:hover{ background:var(--ink); color:var(--paper); }
 .matrixwrap{ position:relative; margin-top:clamp(2.5rem,6vw,4rem); width:100vw; margin-left:calc(50% - 50vw);
-  background:#0b0b0c; overflow:hidden; touch-action:none; user-select:none; }
+  min-height:clamp(280px,34vw,520px); padding-bottom:clamp(1rem,3vw,2rem); background:#0b0b0c; overflow:visible; touch-action:none; user-select:none; }
 .matrix{ display:grid; }
 .cell{ aspect-ratio:1/1; background:#0b0b0c; border:1px solid #16161a; transition:background .05s linear; }
 .matrixname{ position:absolute; inset:0; display:grid; place-items:center; z-index:3; pointer-events:none;
   font-weight:700; text-transform:lowercase; letter-spacing:-.04em; color:#fff; mix-blend-mode:difference;
-  font-size:clamp(3rem,15vw,13rem); }
+  font-size:clamp(3rem,15vw,13rem); line-height:1.15; }
 .matrixhint{ position:absolute; top:12px; left:14px; z-index:3; pointer-events:none; font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:#5a5a66; }
-.foot{ position:relative; z-index:3; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; padding:1.2rem clamp(1.2rem,5vw,5rem);
-  font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:lowercase; color:#7a7a7a; background:#0b0b0c; color:#8a8a8a; }
+.foot{ position:relative; z-index:3; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; padding:1.2rem clamp(1.2rem,5vw,5rem) 2.4rem;
+  font-family:var(--mono); font-size:.72rem; line-height:1.5; letter-spacing:.06em; text-transform:lowercase; color:#7a7a7a; background:#0b0b0c; color:#8a8a8a; }
 
 /* =====================================================================
    REVEAL + RESPONSIVE + A11Y
@@ -236,9 +236,7 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
     <span class="tick up">01 — about</span>
     <h2 class="up">i turn <em>sketches</em> into machines.</h2>
     <!-- EDIT BIO -->
-    <p class="up">a confident paragraph in your own voice — who you are, what you build, and what you're chasing next.
-      lead with what you're best at, name the tools you live in, and let the projects do the rest. keep it to a few
-      honest sentences.</p>
+    <p class="up">i'm arjun rajdev, a rising freshman at the university of maryland. i plan on majoring in mechanical engineering and hope to contribute to innovative projects that make a difference. i have developed projects with columbia university's roar lab to gamify physical therapy for spinal cord injury patients.</p>
     <div class="tags up">
       <span>cad</span><span>hardware</span><span>firmware</span><span>fabrication</span><span>tennis</span><span>marathoning</span>
     </div>
@@ -486,9 +484,10 @@ secs.forEach(s=>spy.observe(s));
   const rand=()=>COLORS[(Math.random()*COLORS.length)|0];
   let cols=0, rows=0;
   function build(){
-    const w=wrap.clientWidth; const cell=Math.max(30, Math.round(w/40));
-    cols=Math.floor(w/cell); rows=6;
+    const w=wrap.clientWidth; const h=wrap.clientHeight; const cell=Math.max(30, Math.round(w/40));
+    cols=Math.max(8, Math.floor(w/cell)); rows=Math.max(8, Math.floor(h/cell));
     grid.style.gridTemplateColumns=`repeat(${cols},1fr)`;
+    grid.style.gridTemplateRows=`repeat(${rows},1fr)`;
     grid.innerHTML='';
     for(let i=0;i<cols*rows;i++){ const d=document.createElement('div'); d.className='cell'; grid.appendChild(d); }
   }
