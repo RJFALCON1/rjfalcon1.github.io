@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>arjun rajdev — engineering is an art</title>
-
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
+ 
 <style>
 /* =====================================================================
    TOKENS
@@ -19,7 +19,7 @@
   --red:#FF4438; --yellow:#FFC93C; --green:#22B26B; --orange:#FF7A1A;
   --purple:#7A5CFF; --cyan:#16C0E6; --pink:#FF5FA2;
   --umd-red:#E21833; --umd-gold:#FFD520;
-
+ 
   --hn:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:"Space Mono",ui-monospace,monospace;
   --anton:"Anton",Impact,sans-serif;
@@ -30,21 +30,21 @@ body{ font-family:var(--hn); color:var(--ink); background:var(--paper); overflow
 a{ color:inherit; }
 img{ display:block; max-width:100%; }
 ::selection{ background:var(--blue); color:#fff; }
-
+ 
 /* faint engineering-paper grid, site-wide */
 body::before{ content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:linear-gradient(var(--blue-soft) 1px,transparent 1px),linear-gradient(90deg,var(--blue-soft) 1px,transparent 1px);
   background-size:32px 32px; }
-
+ 
 .sec{ position:relative; min-height:auto; width:100%; padding:clamp(3rem,6vw,4.5rem) clamp(1.2rem,5vw,5rem); scroll-margin-top:4.5rem;
   display:flex; flex-direction:column; justify-content:center; z-index:1; }
 .wrap{ position:relative; z-index:3; width:100%; max-width:1180px; margin-inline:auto; }
 canvas.bg{ position:absolute; inset:0; width:100%; height:100%; z-index:0; display:block; }
 .lower{ text-transform:lowercase; }
 .tick{ font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue); }
-
+ 
 /* =====================================================================
-   HOWDY BOOT (brought back from the modernist build)
+   HOWDY BOOT
    ===================================================================== */
 body.boot{ overflow:hidden; height:100svh; }
 .boot-cover{ position:fixed; inset:0; z-index:60; background:#0b0b0c; display:grid; place-items:center;
@@ -54,9 +54,9 @@ body.boot{ overflow:hidden; height:100svh; }
 .boot-cover .s1{ color:#fff; } .boot-cover .s2{ color:var(--red); animation-delay:.08s; } .boot-cover .s3{ color:var(--blue); animation-delay:.16s; }
 @keyframes rise{ to{ transform:translateY(0);} }
 body.ready .boot-cover{ opacity:0; visibility:hidden; }
-
+ 
 /* =====================================================================
-   GUGLIERI-STYLE FIXED HEADER
+   FIXED HEADER
    ===================================================================== */
 .topbar{ position:fixed; top:0; left:0; right:0; z-index:40; display:flex; justify-content:space-between; align-items:flex-start; overflow:visible;
   padding:clamp(1rem,2.4vw,1.6rem) clamp(1.2rem,4vw,2.4rem); mix-blend-mode:difference; color:#fff; pointer-events:none; }
@@ -64,13 +64,13 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 .topbar .nm{ font-weight:700; font-size:clamp(1rem,1.6vw,1.25rem); line-height:1.2; letter-spacing:-.01em; display:block; }
 .topbar .tm{ font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; display:block; margin-top:.15rem; opacity:.9; }
 .topbar .tr{ font-family:var(--mono); font-size:clamp(.72rem,1.1vw,.9rem); text-align:right; max-width:14ch; line-height:1.4; }
-
+ 
 /* side dot index */
 .nav{ position:fixed; right:clamp(.7rem,1.6vw,1.2rem); top:50%; transform:translateY(-50%); z-index:41; display:flex; flex-direction:column; gap:.5rem; mix-blend-mode:difference; }
 .nav a{ width:9px; height:9px; border:2px solid #fff; border-radius:50%; display:block; transition:background .2s, transform .2s; }
 .nav a.active{ background:#fff; transform:scale(1.4); }
 @media (max-width:820px){ .nav{ display:none; } }
-
+ 
 /* =====================================================================
    00 · HERO
    ===================================================================== */
@@ -93,22 +93,21 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
   text-transform:uppercase; text-decoration:none; color:var(--blue); }
 .scrollcue span{ display:inline-block; animation:bob 1.8s ease-in-out infinite; }
 @keyframes bob{ 50%{ transform:translateY(5px);} }
-
+ 
 /* =====================================================================
    01 · ABOUT
    ===================================================================== */
-#s1 .tag{ position:relative; }
 #s1 h2{ font-size:clamp(2.2rem,6.5vw,5rem); font-weight:700; letter-spacing:-.03em; line-height:.98; text-transform:lowercase; margin:.6rem 0 1.4rem; max-width:16ch; }
 #s1 h2 em{ font-style:normal; color:var(--blue); }
 #s1 p{ font-size:clamp(1.02rem,1.6vw,1.3rem); line-height:1.6; max-width:56ch; color:#222; }
+#s1 p + p{ margin-top:1rem; }
 #s1 .tags{ margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:.5rem; }
 #s1 .tags span{ font-family:var(--mono); font-size:.78rem; border:1.5px solid var(--ink); padding:.3rem .6rem; border-radius:30px; }
-/* easter-egg trigger (subtle) */
 .umd{ cursor:pointer; transition:color .2s ease; }
 .umd:hover{ color:var(--umd-red); }
-
+ 
 /* =====================================================================
-   02 · METROBOARD  (accurate Manhattan · reclined LED board)
+   02 · METROBOARD
    ===================================================================== */
 #s2{ background:#07080B; color:#fff; }
 #s2 .wrap{ display:grid; grid-template-columns:.92fr 1.08fr; gap:clamp(1.5rem,4vw,3.5rem); align-items:center; }
@@ -124,45 +123,65 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 #s2 .stage{ position:relative; aspect-ratio:4/5; border:1px solid #1a1f2e; background:radial-gradient(120% 90% at 50% 20%,#0d1120,#050609); overflow:hidden; }
 #s2 .stage .cap{ position:absolute; left:12px; bottom:10px; z-index:3; font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:#6f7897; }
 @media (max-width:820px){ #s2 .wrap{ grid-template-columns:1fr; } #s2 .stage{ aspect-ratio:1/1; } }
-
+ 
 /* =====================================================================
-   03 · SKILLS
+   03 · WORK + HONORS
    ===================================================================== */
-#s3 h2{ font-size:clamp(2rem,6vw,4.4rem); font-weight:700; letter-spacing:-.03em; text-transform:lowercase; }
-#s3 .grid{ margin-top:2rem; display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(.8rem,2vw,1.4rem); }
+#s3 h2, #s4 h2{ font-size:clamp(2rem,6vw,4.4rem); font-weight:700; letter-spacing:-.03em; text-transform:lowercase; }
+#s3 .cards{ margin-top:2rem; display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(.9rem,2vw,1.4rem); }
+.card{ border:2px solid var(--ink); background:var(--paper); padding:1.3rem 1.4rem 1.4rem; display:flex; flex-direction:column; gap:.55rem;
+  box-shadow:6px 6px 0 var(--ink); transition:transform .16s ease, box-shadow .16s ease; }
+.card:hover{ transform:translate(-2px,-2px); box-shadow:9px 9px 0 var(--blue); }
+.card .when{ font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); }
+.card h3{ font-size:1.45rem; font-weight:700; letter-spacing:-.015em; text-transform:lowercase; line-height:1.1; }
+.card .role{ font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:#6a6a6a; }
+.card p{ font-size:.97rem; line-height:1.55; color:#222; }
+.card .chips{ margin-top:auto; padding-top:.5rem; display:flex; flex-wrap:wrap; gap:.4rem; }
+.card .chips span{ font-family:var(--mono); font-size:.7rem; border:1.5px solid var(--ink); padding:.2rem .5rem; border-radius:30px; }
+.honors{ margin-top:clamp(2rem,5vw,3rem); border-top:2px solid var(--ink); }
+.honors .row{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding:.75rem 0; border-bottom:1px solid rgba(11,11,12,.18); }
+.honors .row b{ font-size:clamp(1rem,1.8vw,1.2rem); font-weight:700; text-transform:lowercase; }
+.honors .row span{ font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:#6a6a6a; text-align:right; flex:none; }
+@media (max-width:760px){ #s3 .cards{ grid-template-columns:1fr; } .honors .row{ flex-direction:column; gap:.2rem; } .honors .row span{ text-align:left; } }
+ 
+/* =====================================================================
+   04 · TOOLKIT
+   ===================================================================== */
+#s4 .glabel{ display:block; margin-top:2rem; }
+#s4 .grid{ margin-top:.8rem; display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(.8rem,2vw,1.4rem); }
 .skill{ border:2px solid var(--ink); background:var(--paper); padding:1.2rem 1.3rem; display:flex; align-items:center; gap:1rem;
   box-shadow:6px 6px 0 var(--ink); transition:transform .16s ease; }
 .skill:hover{ transform:translate(-2px,-2px); box-shadow:9px 9px 0 var(--blue); }
-.skill .g{ width:44px; height:44px; border-radius:8px; display:grid; place-items:center; color:#fff; font-weight:700; font-family:var(--mono); font-size:1.1rem; flex:none; }
-.skill .nm{ font-size:1.4rem; font-weight:700; text-transform:lowercase; letter-spacing:-.01em; }
+.skill .g{ width:44px; height:44px; border-radius:8px; display:grid; place-items:center; color:#fff; font-weight:700; font-family:var(--mono); font-size:1rem; flex:none; }
+.skill .nm{ font-size:1.35rem; font-weight:700; text-transform:lowercase; letter-spacing:-.01em; }
 .skill .kind{ font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:#6a6a6a; }
-@media (max-width:760px){ #s3 .grid{ grid-template-columns:1fr 1fr; } }
-@media (max-width:460px){ #s3 .grid{ grid-template-columns:1fr; } }
-
+@media (max-width:760px){ #s4 .grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:460px){ #s4 .grid{ grid-template-columns:1fr; } }
+ 
 /* =====================================================================
-   04 · CODA (Apple)
+   05 · CODA (Apple)
    ===================================================================== */
-#s4{ text-align:center; align-items:center; }
-#s4 .stripes{ width:min(360px,66vw); height:12px; margin:0 auto 2.4rem;
+#s5{ text-align:center; align-items:center; }
+#s5 .stripes{ width:min(360px,66vw); height:12px; margin:0 auto 2.4rem;
   background:linear-gradient(90deg,#61BB46 0 16.66%,#FDB827 0 33.33%,#F5821F 0 50%,#E03A3E 0 66.66%,#963D97 0 83.33%,#009DDC 0); }
-#s4 blockquote{ font-size:clamp(1.6rem,4.2vw,3.2rem); font-weight:700; line-height:1.18; letter-spacing:-.02em; max-width:22ch; margin:0 auto; min-height:1.1em; }
-#s4 .car{ display:inline-block; width:.5ch; background:var(--blue); margin-left:.04em; animation:blink 1s steps(1) infinite; }
+#s5 blockquote{ font-size:clamp(1.6rem,4.2vw,3.2rem); font-weight:700; line-height:1.18; letter-spacing:-.02em; max-width:22ch; margin:0 auto; min-height:1.1em; }
+#s5 .car{ display:inline-block; width:.5ch; background:var(--blue); margin-left:.04em; animation:blink 1s steps(1) infinite; }
 @keyframes blink{ 50%{ opacity:0; } }
-#s4 cite{ display:inline-block; margin-top:1.6rem; font-family:var(--mono); font-style:normal; letter-spacing:.1em; text-transform:lowercase;
+#s5 cite{ display:inline-block; margin-top:1.6rem; font-family:var(--mono); font-style:normal; letter-spacing:.1em; text-transform:lowercase;
   font-size:clamp(.9rem,1.5vw,1.1rem); opacity:0; transform:translateY(12px); transition:opacity .7s ease, transform .7s ease; }
-#s4 cite.show{ opacity:1; transform:none; }
-#s4 .td{ margin-top:1.6rem; font-family:var(--mono); font-size:.72rem; letter-spacing:.28em; text-transform:lowercase; color:#8a8a8a; }
-
+#s5 cite.show{ opacity:1; transform:none; }
+#s5 .td{ margin-top:1.6rem; font-family:var(--mono); font-size:.72rem; letter-spacing:.28em; text-transform:lowercase; color:#8a8a8a; }
+ 
 /* =====================================================================
-   05 · CONTACT + INTERACTIVE MATRIX   (light section; matrix stays dark)
+   06 · CONTACT + INTERACTIVE MATRIX
    ===================================================================== */
-#s5{ padding-bottom:0; }
-#s5 h2{ font-size:clamp(2.2rem,7vw,5rem); font-weight:700; letter-spacing:-.03em; text-transform:lowercase; }
-#s5 .email{ display:inline-block; margin-top:1rem; font-size:clamp(1.4rem,4vw,2.6rem); font-weight:700; color:var(--blue); text-decoration:none; letter-spacing:-.02em; word-break:break-all; }
-#s5 .email:hover{ text-decoration:underline; }
-#s5 .links{ margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:.6rem; }
-#s5 .links a{ font-family:var(--mono); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; border:2px solid var(--ink); padding:.55rem .9rem; text-decoration:none; transition:.16s; }
-#s5 .links a:hover{ background:var(--ink); color:var(--paper); }
+#s6{ padding-bottom:0; }
+#s6 h2{ font-size:clamp(2.2rem,7vw,5rem); font-weight:700; letter-spacing:-.03em; text-transform:lowercase; }
+#s6 .email{ display:inline-block; margin-top:1rem; font-size:clamp(1.4rem,4vw,2.6rem); font-weight:700; color:var(--blue); text-decoration:none; letter-spacing:-.02em; word-break:break-all; }
+#s6 .email:hover{ text-decoration:underline; }
+#s6 .links{ margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:.6rem; }
+#s6 .links a{ font-family:var(--mono); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; border:2px solid var(--ink); padding:.55rem .9rem; text-decoration:none; transition:.16s; }
+#s6 .links a:hover{ background:var(--ink); color:var(--paper); }
 .matrixwrap{ position:relative; margin-top:clamp(2.5rem,6vw,4rem); width:100vw; margin-left:calc(50% - 50vw);
   min-height:clamp(240px,42vh,420px); background:#0b0b0c; overflow:hidden; touch-action:none; user-select:none; }
 .matrix{ display:grid; min-height:100%; width:100%; }
@@ -173,7 +192,7 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 .matrixhint{ position:absolute; top:12px; left:14px; z-index:3; pointer-events:none; font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:#5a5a66; }
 .foot{ position:relative; z-index:3; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; padding:1.2rem clamp(1.2rem,5vw,5rem) 2.4rem;
   font-family:var(--mono); font-size:.72rem; line-height:1.5; letter-spacing:.06em; text-transform:lowercase; background:#0b0b0c; color:#8a8a8a; }
-
+ 
 /* =====================================================================
    GO TERPS! easter egg overlay
    ===================================================================== */
@@ -184,7 +203,7 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
   font-size:clamp(3rem,15vw,12rem); line-height:.9; text-shadow:5px 5px 0 rgba(0,0,0,.22);
   transform:scale(.85); transition:transform .35s cubic-bezier(.2,.9,.2,1.3); }
 #terps.on span{ transform:scale(1); }
-
+ 
 /* =====================================================================
    REVEAL + RESPONSIVE + A11Y
    ===================================================================== */
@@ -201,15 +220,15 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
 :focus-visible{ outline:3px solid var(--blue); outline-offset:3px; }
 </style>
 </head>
-
+ 
 <body class="boot">
-
+ 
 <!-- HOWDY intro -->
 <div class="boot-cover" id="boot"><div class="word"><span class="s1">how</span><span class="s2">d</span><span class="s3">y</span></div></div>
-
+ 
 <!-- GO TERPS! easter egg -->
 <div id="terps" aria-hidden="true"><span>go terps!</span></div>
-
+ 
 <!-- fixed header (name · nyc time · slogan) -->
 <header class="topbar">
   <div class="tl">
@@ -218,12 +237,12 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
   </div>
   <div class="tr lower">engineering<br>is an art</div>
 </header>
-
+ 
 <nav class="nav" aria-label="Sections">
   <a href="#s0" data-i="s0"></a><a href="#s1" data-i="s1"></a><a href="#s2" data-i="s2"></a>
-  <a href="#s3" data-i="s3"></a><a href="#s4" data-i="s4"></a><a href="#s5" data-i="s5"></a>
+  <a href="#s3" data-i="s3"></a><a href="#s4" data-i="s4"></a><a href="#s5" data-i="s5"></a><a href="#s6" data-i="s6"></a>
 </nav>
-
+ 
 <!-- 00 · HERO -->
 <section class="sec" id="s0">
   <canvas class="bg" id="gl-knot"></canvas>
@@ -248,20 +267,21 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
   </div>
   <a class="scrollcue" href="#s1">scroll <span>↓</span></a>
 </section>
-
+ 
 <!-- 01 · ABOUT -->
 <section class="sec" id="s1">
   <div class="wrap">
     <span class="tick up">01 — about</span>
     <h2 class="up">i turn <em>sketches</em> into machines.</h2>
     <!-- EDIT BIO -->
-    <p class="up">i'm arjun rajdev, a rising freshman at <span class="umd" id="umd">the university of maryland</span>. i plan on majoring in mechanical engineering and hope to contribute to innovative projects that make a difference. i have developed projects with columbia university's roar lab to gamify physical therapy for spinal cord injury patients.</p>
+    <p class="up">i'm arjun rajdev, a freshman at <span class="umd" id="umd">the university of maryland</span> studying mechanical engineering, where i'm a first-year innovation &amp; research experience (fire) student and a presidential scholarship recipient.</p>
+    <p class="up">i work where mechanical design meets software. at columbia university's roar lab, i built an augmented reality physical therapy system paired with a motion-tracked reach stand. at umd, i'm on the mechanics subteam of terps racing ev and building in the xr club.</p>
     <div class="tags up">
-      <span>cad</span><span>hardware</span><span>firmware</span><span>fabrication</span><span>tennis</span><span>marathoning</span>
+      <span>cad</span><span>hardware</span><span>fabrication</span><span>ar / vr</span><span>robotics</span><span>tennis</span><span>marathoning</span>
     </div>
   </div>
 </section>
-
+ 
 <!-- 02 · METROBOARD -->
 <section class="sec" id="s2">
   <div class="wrap">
@@ -275,17 +295,19 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
         <span class="bul" style="background:#B933AD;">7</span>
         <span class="bul" style="background:#A7A9AC;color:#000;">L</span>
       </div>
-      <div class="lab up">project 01 · hardware</div>
+      <div class="lab up">02 — featured project · hardware</div>
       <h2 class="up">metroboard</h2>
       <div class="tagline up">a real-time mta map — one led at a time.</div>
-      <p class="up">131 ws2812b leds wired across a plywood manhattan. an arduino nano esp32 pulls live gtfs-rt feeds from a
-        raspberry pi running mtapi over websocket, so every addressable pixel lights up exactly where a train actually is
-        — color-coded by line, updating in real time. i built an offline demonstration mode so it still runs when the network drops
+      <p class="up">i repurposed a subway map, installed an led at every station, and soldered 400+ joints by hand.
+        an esp32 talks to a raspberry pi server pulling live mta gtfs-rt feeds, so each station flashes the color of the
+        train arriving there in real time. i built an offline demonstration mode so it still runs when the network drops
         at a presentation.</p>
       <div class="specs up">
-        <div class="row"><span>leds</span><span>131 × ws2812b</span></div>
-        <div class="row"><span>controller</span><span>arduino nano esp32</span></div>
+        <div class="row"><span>leds</span><span>131 × ws2812b · one per station</span></div>
+        <div class="row"><span>build</span><span>400+ hand-soldered joints</span></div>
+        <div class="row"><span>controller</span><span>esp32 ↔ raspberry pi server</span></div>
         <div class="row"><span>data</span><span>gtfs-rt · mtapi · websocket</span></div>
+        <div class="row"><span>built</span><span>spring / summer 2026</span></div>
         <div class="row"><span>status</span><span>✓ live</span></div>
       </div>
     </div>
@@ -297,48 +319,103 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
     </div>
   </div>
 </section>
-
-<!-- 03 · SKILLS -->
+ 
+<!-- 03 · WORK + HONORS -->
 <section class="sec" id="s3">
   <div class="wrap">
-    <span class="tick up">03 — toolkit</span>
+    <span class="tick up">03 — work</span>
+    <h2 class="up">more things i've built.</h2>
+    <div class="cards">
+      <article class="card up">
+        <span class="when">summer 2024 – summer 2025</span>
+        <h3>roar lab, columbia university</h3>
+        <span class="role">student researcher</span>
+        <p>built an augmented reality physical therapy system in unity and c#, paired with a motion-tracked reach stand, to avoid the motion sickness of vr-based rehab. also guided 10 participants through a trial of the lab's vr rehab game and analyzed their motion data in python.</p>
+        <div class="chips"><span>unity</span><span>c#</span><span>ar</span><span>python</span></div>
+      </article>
+      <article class="card up">
+        <span class="when">sonoma hacks 3.0 · 2023</span>
+        <h3>class capture — 3rd place</h3>
+        <span class="role">hackathon · co-builder</span>
+        <p>a face-recognition attendance system in python and opencv that flags absent students from a webcam feed at an 85% confidence threshold. i built the web front end and extended it into a security mode that alerts on unrecognized faces.</p>
+        <div class="chips"><span>python</span><span>opencv</span><span>web</span></div>
+      </article>
+      <article class="card up">
+        <span class="when">2023 – 2026</span>
+        <h3>edgemont ftc robotics</h3>
+        <span class="role">captain of programming &amp; design</span>
+        <p>taught programming and cad to 40+ students and built a tensorflow image-detection model, helping the team earn 4 ftc awards — control, design, motivate, and think.</p>
+        <div class="chips"><span>cad</span><span>tensorflow</span><span>robotics</span></div>
+      </article>
+      <article class="card up">
+        <span class="when">2025 – 2026</span>
+        <h3>westchester regional ms science &amp; engineering fair</h3>
+        <span class="role">co-founder · co-president</span>
+        <p>co-founded westchester's first middle school science fair — ran school outreach and judge coordination, and mentored 4 student teams.</p>
+        <div class="chips"><span>leadership</span><span>mentoring</span></div>
+      </article>
+    </div>
+ 
+    <div class="honors up">
+      <div class="row"><b>genius olympiad — 3rd place</b><span>international · 2025</span></div>
+      <div class="row"><b>ibm visionary engineer award (2×)</b><span>regional · 2025 &amp; 2026</span></div>
+      <div class="row"><b>congressional recognition certificate</b><span>national · 2023</span></div>
+      <div class="row"><b>presidential scholarship</b><span>university of maryland</span></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- 04 · TOOLKIT -->
+<section class="sec" id="s4">
+  <div class="wrap">
+    <span class="tick up">04 — toolkit</span>
     <h2 class="up">what i build with.</h2>
+ 
+    <span class="tick glabel up">mechanics</span>
+    <div class="grid">
+      <div class="skill up"><span class="g" style="background:var(--red)">sw</span><div><div class="nm">solidworks</div><div class="kind">cad</div></div></div>
+      <div class="skill up"><span class="g" style="background:var(--orange)">f3</span><div><div class="nm">fusion 360</div><div class="kind">cad</div></div></div>
+      <div class="skill up"><span class="g" style="background:var(--yellow);color:#000">⚡</span><div><div class="nm">soldering</div><div class="kind">electronics</div></div></div>
+      <div class="skill up"><span class="g" style="background:var(--green)">dp</span><div><div class="nm">drill press</div><div class="kind">shop</div></div></div>
+      <div class="skill up"><span class="g" style="background:var(--cyan)">lt</span><div><div class="nm">lathe</div><div class="kind">shop · in progress</div></div></div>
+    </div>
+ 
+    <span class="tick glabel up">software</span>
     <div class="grid">
       <div class="skill up"><span class="g" style="background:var(--blue)">py</span><div><div class="nm">python</div><div class="kind">language</div></div></div>
-      <div class="skill up"><span class="g" style="background:var(--red)">jv</span><div><div class="nm">java</div><div class="kind">language</div></div></div>
       <div class="skill up"><span class="g" style="background:var(--yellow);color:#000">js</span><div><div class="nm">javascript</div><div class="kind">language</div></div></div>
+      <div class="skill up"><span class="g" style="background:var(--cyan)">re</span><div><div class="nm">react</div><div class="kind">framework</div></div></div>
       <div class="skill up"><span class="g" style="background:var(--orange)">&lt;/&gt;</span><div><div class="nm">html</div><div class="kind">markup</div></div></div>
       <div class="skill up"><span class="g" style="background:var(--green)">c#</span><div><div class="nm">c#</div><div class="kind">language</div></div></div>
       <div class="skill up"><span class="g" style="background:var(--purple)">u</span><div><div class="nm">unity</div><div class="kind">engine</div></div></div>
     </div>
   </div>
 </section>
-
-<!-- 04 · CODA (Apple) -->
-<section class="sec" id="s4">
+ 
+<!-- 05 · CODA (Apple) -->
+<section class="sec" id="s5">
   <div class="wrap">
     <div class="stripes up"></div>
     <blockquote id="quote"></blockquote>
-    <cite id="cite">— steve jobs</cite>
+    <cite id="cite">— apple, 1997</cite>
     <div class="td">think different</div>
   </div>
 </section>
-
-<!-- 05 · CONTACT + MATRIX -->
-<section class="sec" id="s5">
+ 
+<!-- 06 · CONTACT + MATRIX -->
+<section class="sec" id="s6">
   <div class="wrap">
     <span class="tick up">05 — contact</span>
     <h2 class="up">let's build something.</h2>
-    <!-- EMAIL -->
-    <a class="email up" href="mailto:arjdv12@gmail.com">arjdv12@gmail.com</a>
+    <a class="email up" href="mailto:rajdevarjun1@gmail.com">rajdevarjun1@gmail.com</a>
     <div class="links up">
-      <!-- EDIT links / resume -->
       <a href="resume.pdf" download>résumé ↓</a>
-      <a href="#">linkedin</a>
+      <a href="https://linkedin.com/in/arjunrajdev" target="_blank" rel="noopener">linkedin</a>
+      <!-- EDIT: add your GitHub URL -->
       <a href="#">github</a>
     </div>
   </div>
-
+ 
   <div class="matrixwrap" id="matrixwrap">
     <span class="matrixhint">click + drag to play →</span>
     <div class="matrix" id="matrix"></div>
@@ -346,19 +423,19 @@ body.ready .boot-cover{ opacity:0; visibility:hidden; }
   </div>
   <div class="foot">
     <span>© 2026 arjun rajdev</span>
-    <span>new york city</span>
+    <span>new york · college park</span>
     <span>engineering is an art</span>
   </div>
 </section>
-
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let mx=.5,my=.5, T=0, last=performance.now();
 addEventListener('pointermove', e=>{ mx=e.clientX/innerWidth; my=1-e.clientY/innerHeight; },{passive:true});
 const scenes=[];
-
-/* ---------- NYC clock (Guglieri corner) ---------- */
+ 
+/* ---------- NYC clock ---------- */
 (function(){
   const el=document.getElementById('clock');
   function tick(){ try{
@@ -367,10 +444,10 @@ const scenes=[];
   }catch(e){ el.textContent='new york'; } }
   tick(); setInterval(tick,15000);
 })();
-
+ 
 /* ---------- boot reveal ---------- */
 addEventListener('load',()=> setTimeout(()=>{ document.body.classList.add('ready'); document.body.classList.remove('boot'); }, reduce?200:1100));
-
+ 
 /* ---------- GO TERPS! easter egg ---------- */
 (function(){
   const umd=document.getElementById('umd'), terps=document.getElementById('terps');
@@ -382,14 +459,14 @@ addEventListener('load',()=> setTimeout(()=>{ document.body.classList.add('ready
     timer=setTimeout(()=> terps.classList.remove('on'), 2000);
   });
 })();
-
+ 
 /* =====================================================================
    WEBGL
    ===================================================================== */
 function mkRenderer(c){ const r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true}); r.setPixelRatio(Math.min(devicePixelRatio,1.75)); return r; }
 function sizeOf(c){ return [c.clientWidth||innerWidth, c.clientHeight||innerHeight]; }
-
-/* ---- hero: rotating blueprint wireframe object (not a person) ---- */
+ 
+/* ---- hero: rotating blueprint wireframe object ---- */
 function initKnot(){
   const c=document.getElementById('gl-knot'); const renderer=mkRenderer(c);
   const scene=new THREE.Scene(); const cam=new THREE.PerspectiveCamera(45,1,.1,100); cam.position.z=6.4;
@@ -399,23 +476,21 @@ function initKnot(){
   g.add(wire);
   const skin=new THREE.Mesh(knot, new THREE.MeshBasicMaterial({color:0x1846F0, transparent:true, opacity:.05}));
   g.add(skin);
-  // a few LED nodes riding the surface
   const nodeGeo=new THREE.SphereGeometry(0.045,10,10); const nodes=[];
   for(let i=0;i<16;i++){ const n=new THREE.Mesh(nodeGeo,new THREE.MeshBasicMaterial({color:0x1846F0})); const a=i/16*Math.PI*2;
     n.userData={a, ph:Math.random()*6.28}; g.add(n); nodes.push(n); }
   const s={canvas:c, active:true,
     resize(){ const [w,h]=sizeOf(c); renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix();
-      // frame object to the right on wide screens, centered on narrow
       cam.position.x = (w>820)? 1.1 : 0; cam.updateProjectionMatrix(); },
     render(){ if(!reduce){ g.rotation.y+=0.004; g.rotation.x+=0.0016; }
-      g.rotation.y += (mx-0.5)*0.0008; 
+      g.rotation.y += (mx-0.5)*0.0008;
       nodes.forEach((n,i)=>{ const a=n.userData.a + T*0.3; n.position.set(Math.cos(a*2)*1.35+Math.cos(a*3)*0.42, Math.sin(a*2)*1.35+Math.sin(a*3)*0.42, -Math.sin(a*3)*0.42);
         const p=0.6+0.5*Math.sin(T*3+n.userData.ph); n.scale.setScalar(reduce?1:p); });
       renderer.render(scene,cam); } };
   s.resize(); scenes.push(s);
 }
-
-/* ---- metroboard: accurate-ish Manhattan trunk lines, reclined LED board ---- */
+ 
+/* ---- metroboard: Manhattan trunk lines, reclined LED board ---- */
 function glowTex(){ const c=document.createElement('canvas'); c.width=c.height=64; const x=c.getContext('2d');
   const r=x.createRadialGradient(32,32,0,32,32,32); r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(.35,'rgba(255,255,255,.55)'); r.addColorStop(1,'rgba(255,255,255,0)');
   x.fillStyle=r; x.fillRect(0,0,64,64); return new THREE.CanvasTexture(c); }
@@ -425,21 +500,20 @@ function initMetro(){
   const board=new THREE.Group(); scene.add(board);
   board.rotation.x=-0.62; board.rotation.z=-0.16; board.scale.setScalar(0.62); board.position.y=0.4;
   const halo=glowTex();
-
-  // Manhattan trunk lines — top (uptown) to bottom (downtown), x west(-)→east(+)
+ 
   const LINES=[
-    {c:0x0039A6, w:[[-1.95,7],[-1.85,4.2],[-1.7,1.6],[-1.55,-0.4],[-1.25,-2.8],[-0.8,-5],[-0.5,-6.6]]},        // A/C/E 8th Ave→Fulton
-    {c:0xEE352E, w:[[-1.35,7],[-1.25,4.2],[-1.05,1.4],[-1.0,-0.6],[-1.05,-3],[-0.95,-5.2],[-0.75,-7.4]]},      // 1/2/3 7th Ave→South Ferry
-    {c:0xFF6319, w:[[-0.5,6.6],[-0.5,4],[-0.42,1.5],[-0.32,-0.6],[-0.18,-2.6],[0.05,-4.4],[0.25,-5.8]]},        // B/D/F/M 6th Ave
-    {c:0xFCCC0A, w:[[1.0,6.6],[0.5,4.2],[-0.15,2.1],[-0.62,1.0],[-0.25,-0.9],[0.05,-2.8],[0.35,-4.8],[0.55,-6.2]]}, // N/Q/R/W Broadway diagonal
-    {c:0x00933C, w:[[1.35,7],[1.45,4.2],[1.5,1.5],[1.35,-0.9],[1.0,-3],[0.82,-5],[0.72,-6.1]]},                  // 4/5/6 Lexington→Bowling Grn
-    {c:0x00ADD0, w:[[2.25,6.6],[2.1,4.4],[1.95,2.4],[1.2,1.1]]},                                                 // Q 2nd Ave (upper east)
-    {c:0xB933AD, w:[[-0.62,1.0],[0.2,1.12],[1.2,1.2],[2.2,1.45],[3.2,1.7]]},                                     // 7 · 42nd crosstown
-    {c:0xA7A9AC, w:[[-2.0,-0.9],[-0.62,-1.0],[-0.12,-1.0],[1.35,-0.9],[2.7,-0.75]]},                             // L · 14th crosstown
-    {c:0x808183, w:[[-0.62,1.0],[0.6,1.05],[1.4,1.1]]}                                                            // S · 42nd shuttle
+    {c:0x0039A6, w:[[-1.95,7],[-1.85,4.2],[-1.7,1.6],[-1.55,-0.4],[-1.25,-2.8],[-0.8,-5],[-0.5,-6.6]]},
+    {c:0xEE352E, w:[[-1.35,7],[-1.25,4.2],[-1.05,1.4],[-1.0,-0.6],[-1.05,-3],[-0.95,-5.2],[-0.75,-7.4]]},
+    {c:0xFF6319, w:[[-0.5,6.6],[-0.5,4],[-0.42,1.5],[-0.32,-0.6],[-0.18,-2.6],[0.05,-4.4],[0.25,-5.8]]},
+    {c:0xFCCC0A, w:[[1.0,6.6],[0.5,4.2],[-0.15,2.1],[-0.62,1.0],[-0.25,-0.9],[0.05,-2.8],[0.35,-4.8],[0.55,-6.2]]},
+    {c:0x00933C, w:[[1.35,7],[1.45,4.2],[1.5,1.5],[1.35,-0.9],[1.0,-3],[0.82,-5],[0.72,-6.1]]},
+    {c:0x00ADD0, w:[[2.25,6.6],[2.1,4.4],[1.95,2.4],[1.2,1.1]]},
+    {c:0xB933AD, w:[[-0.62,1.0],[0.2,1.12],[1.2,1.2],[2.2,1.45],[3.2,1.7]]},
+    {c:0xA7A9AC, w:[[-2.0,-0.9],[-0.62,-1.0],[-0.12,-1.0],[1.35,-0.9],[2.7,-0.75]]},
+    {c:0x808183, w:[[-0.62,1.0],[0.6,1.05],[1.4,1.1]]}
   ];
-  const hubs=[[-0.62,1.0],[-0.12,-1.0],[1.4,1.1],[-0.35,2.1],[-0.5,-6.6],[1.5,1.5],[-1.05,1.4]]; // Times Sq, Union Sq, GCT, Herald, Fulton...
-
+  const hubs=[[-0.62,1.0],[-0.12,-1.0],[1.4,1.1],[-0.35,2.1],[-0.5,-6.6],[1.5,1.5],[-1.05,1.4]];
+ 
   const trains=[], stations=[];
   const stGeo=new THREE.SphereGeometry(0.075,10,10);
   LINES.forEach(L=>{
@@ -452,11 +526,10 @@ function initMetro(){
       const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:halo,color:L.c,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false})); sp.scale.setScalar(0.85); tr.add(sp);
       board.add(tr); trains.push({mesh:tr,curve,t:Math.random(),spd:0.03+Math.random()*0.03}); }
   });
-  // interchange hubs = bigger LEDs with halo
   hubs.forEach(h=>{ const m=new THREE.Mesh(new THREE.SphereGeometry(0.14,14,14),new THREE.MeshBasicMaterial({color:0xffffff}));
     m.position.set(h[0],h[1],0.02); const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:halo,color:0xffffff,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false})); sp.scale.setScalar(0.8); m.add(sp);
     m.userData.ph=Math.random()*6.28; board.add(m); stations.push(m); });
-
+ 
   const s={canvas:c, active:false,
     resize(){ const [w,h]=sizeOf(c); renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); },
     render(dt){
@@ -467,7 +540,7 @@ function initMetro(){
     }};
   s.resize(); scenes.push(s);
 }
-
+ 
 function boot(){
   if(!window.THREE){ document.querySelectorAll('canvas.bg').forEach(c=>c.style.display='none'); return; }
   [initKnot, initMetro].forEach(fn=>{ try{ fn(); }catch(e){ console.warn(e); } });
@@ -476,7 +549,7 @@ function boot(){
     scenes.forEach(s=>{ if(s.active) s.render(dt); }); })(performance.now());
 }
 boot();
-
+ 
 /* =====================================================================
    REVEAL + NAV + scene toggling
    ===================================================================== */
@@ -488,13 +561,13 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(cid){ const sc=scenes.find(s=>s.canvas.id===cid); if(sc){ sc.active=e.isIntersecting; if(e.isIntersecting) sc.resize(); } }
 }),{threshold:0.15});
 secs.forEach(s=>io.observe(s));
-
+ 
 const navA=[...document.querySelectorAll('.nav a')];
 const spy=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) navA.forEach(a=>a.classList.toggle('active',a.dataset.i===e.target.id)); }),{threshold:0.5});
 secs.forEach(s=>spy.observe(s));
-
+ 
 /* =====================================================================
-   CODA typewriter (shortened quote)
+   CODA typewriter
    ===================================================================== */
 (function(){
   const el=document.getElementById('quote'), cite=document.getElementById('cite');
@@ -503,11 +576,11 @@ secs.forEach(s=>spy.observe(s));
     let i=0; const car=document.createElement('span'); car.className='car'; car.innerHTML='&nbsp;'; el.textContent=''; el.appendChild(car);
     (function step(){ if(i<text.length){ car.insertAdjacentText('beforebegin',text[i]); i++; setTimeout(step,34); }
       else { setTimeout(()=>car.remove(),700); cite.classList.add('show'); } })(); }
-  new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ run(); o.disconnect(); }}),{threshold:0.4}).observe(document.getElementById('s4'));
+  new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ run(); o.disconnect(); }}),{threshold:0.4}).observe(document.getElementById('s5'));
 })();
-
+ 
 /* =====================================================================
-   UNITS-STYLE INTERACTIVE COLOR MATRIX
+   INTERACTIVE COLOR MATRIX
    ===================================================================== */
 (function(){
   const wrap=document.getElementById('matrixwrap'), grid=document.getElementById('matrix');
@@ -524,14 +597,13 @@ secs.forEach(s=>spy.observe(s));
   }
   build();
   let ro; addEventListener('resize',()=>{ clearTimeout(ro); ro=setTimeout(build,150); });
-
+ 
   let down=false;
   function paintAt(x,y){ const el=document.elementFromPoint(x,y); if(el && el.classList.contains('cell')) el.style.background=rand(); }
   wrap.addEventListener('pointerdown',e=>{ down=true; paintAt(e.clientX,e.clientY); });
   addEventListener('pointerup',()=> down=false);
   wrap.addEventListener('pointermove',e=>{ if(down) paintAt(e.clientX,e.clientY); });
   wrap.addEventListener('pointerleave',()=> down=false);
-  // tap-to-color even without drag
   grid.addEventListener('click',e=>{ if(e.target.classList.contains('cell')) e.target.style.background=rand(); });
 })();
 </script>
